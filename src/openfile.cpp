@@ -34,7 +34,6 @@ void OpenFileWindow::on_button_file_clicked() {
     auto filter_json = Gtk::FileFilter::create();
     filter_json->set_name("JSON files");
     filter_json->add_mime_type("application/json");
-    filter_json->add_mime_type("application/json");
     dialog.add_filter(filter_json);
 
     auto filter_any = Gtk::FileFilter::create();
