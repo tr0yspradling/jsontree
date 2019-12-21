@@ -1,9 +1,9 @@
-//
-// Created by troy on 12/21/19.
-//
+#ifndef OPENFILE_H
+#define OPENFILE_H
 
 #include <gtkmm.h>
 #include <iostream>
+#include "rapidjson/document.h"
 
 class OpenFileWindow : public Gtk::Window {
 public:
@@ -15,9 +15,9 @@ protected:
     //Signal handlers:
     void on_button_file_clicked();
 
-    void on_button_folder_clicked();
-
     //Child widgets:
     Gtk::ButtonBox buttonBox;
-    Gtk::Button fileButton, folderButton;
+    Gtk::Button fileButton;
 };
+
+#endif

@@ -164,13 +164,14 @@
 */
 #ifndef RAPIDJSON_NO_INT64DEFINE
 //!@cond RAPIDJSON_HIDDEN_FROM_DOXYGEN
-#if defined(_MSC_VER) && (_MSC_VER < 1800)	// Visual Studio 2013
+#if defined(_MSC_VER) && (_MSC_VER < 1800)    // Visual Studio 2013
 #include "msinttypes/stdint.h"
 #include "msinttypes/inttypes.h"
 #else
 // Other compilers should have this.
 #include <stdint.h>
 #include <inttypes.h>
+
 #endif
 //!@endcond
 #ifdef RAPIDJSON_DOXYGEN_RUNNING
@@ -349,7 +350,7 @@
     \c RAPIDJSON_SIMD to indicate the availability of the optimized code.
 */
 #if defined(RAPIDJSON_SSE2) || defined(RAPIDJSON_SSE42) \
-    || defined(RAPIDJSON_NEON) || defined(RAPIDJSON_DOXYGEN_RUNNING)
+ || defined(RAPIDJSON_NEON) || defined(RAPIDJSON_DOXYGEN_RUNNING)
 #define RAPIDJSON_SIMD
 #endif
 
@@ -381,13 +382,13 @@ RAPIDJSON_NAMESPACE_BEGIN
     instead of using \c size_t. Users may override the SizeType by defining
     \ref RAPIDJSON_NO_SIZETYPEDEFINE.
 */
-typedef unsigned SizeType;
+    typedef unsigned SizeType;
 RAPIDJSON_NAMESPACE_END
 #endif
 
 // always import std::size_t to rapidjson namespace
 RAPIDJSON_NAMESPACE_BEGIN
-using std::size_t;
+    using std::size_t;
 RAPIDJSON_NAMESPACE_END
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -402,7 +403,9 @@ RAPIDJSON_NAMESPACE_END
           \ref RAPIDJSON_ERRORS APIs.
 */
 #ifndef RAPIDJSON_ASSERT
+
 #include <cassert>
+
 #define RAPIDJSON_ASSERT(x) assert(x)
 #endif // RAPIDJSON_ASSERT
 
@@ -411,7 +414,7 @@ RAPIDJSON_NAMESPACE_END
 
 // Prefer C++11 static_assert, if available
 #ifndef RAPIDJSON_STATIC_ASSERT
-#if __cplusplus >= 201103L || ( defined(_MSC_VER) && _MSC_VER >= 1800 )
+#if __cplusplus >= 201103L || (defined(_MSC_VER) && _MSC_VER >= 1800)
 #define RAPIDJSON_STATIC_ASSERT(x) \
    static_assert(x, RAPIDJSON_STRINGIFY(x))
 #endif // C++11
@@ -482,12 +485,12 @@ RAPIDJSON_NAMESPACE_END
 
 //!@cond RAPIDJSON_HIDDEN_FROM_DOXYGEN
 
-#define RAPIDJSON_MULTILINEMACRO_BEGIN do {  
+#define RAPIDJSON_MULTILINEMACRO_BEGIN do {
 #define RAPIDJSON_MULTILINEMACRO_END \
 } while((void)0, 0)
 
 // adopted from Boost
-#define RAPIDJSON_VERSION_CODE(x,y,z) \
+#define RAPIDJSON_VERSION_CODE(x, y, z) \
   (((x)*100000) + ((y)*100) + (z))
 
 #if defined(__has_builtin)
@@ -504,7 +507,7 @@ RAPIDJSON_NAMESPACE_END
     RAPIDJSON_VERSION_CODE(__GNUC__,__GNUC_MINOR__,__GNUC_PATCHLEVEL__)
 #endif
 
-#if defined(__clang__) || (defined(RAPIDJSON_GNUC) && RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4,2,0))
+#if defined(__clang__) || (defined(RAPIDJSON_GNUC) && RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4, 2, 0))
 
 #define RAPIDJSON_PRAGMA(x) _Pragma(RAPIDJSON_STRINGIFY(x))
 #define RAPIDJSON_DIAG_PRAGMA(x) RAPIDJSON_PRAGMA(GCC diagnostic x)
@@ -512,7 +515,7 @@ RAPIDJSON_NAMESPACE_END
     RAPIDJSON_DIAG_PRAGMA(ignored RAPIDJSON_STRINGIFY(RAPIDJSON_JOIN(-W,x)))
 
 // push/pop support in Clang and GCC>=4.6
-#if defined(__clang__) || (defined(RAPIDJSON_GNUC) && RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4,6,0))
+#if defined(__clang__) || (defined(RAPIDJSON_GNUC) && RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4, 6, 0))
 #define RAPIDJSON_DIAG_PUSH RAPIDJSON_DIAG_PRAGMA(push)
 #define RAPIDJSON_DIAG_POP  RAPIDJSON_DIAG_PRAGMA(pop)
 #else // GCC >= 4.2, < 4.6
@@ -549,7 +552,7 @@ RAPIDJSON_NAMESPACE_END
 #else
 #define RAPIDJSON_HAS_CXX11_RVALUE_REFS 0
 #endif
-#elif (defined(RAPIDJSON_GNUC) && (RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4,3,0)) && defined(__GXX_EXPERIMENTAL_CXX0X__)) || \
+#elif (defined(RAPIDJSON_GNUC) && (RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4, 3, 0)) && defined(__GXX_EXPERIMENTAL_CXX0X__)) || \
       (defined(_MSC_VER) && _MSC_VER >= 1600) || \
       (defined(__SUNPRO_CC) && __SUNPRO_CC >= 0x5140 && defined(__GXX_EXPERIMENTAL_CXX0X__))
 
@@ -562,7 +565,7 @@ RAPIDJSON_NAMESPACE_END
 #ifndef RAPIDJSON_HAS_CXX11_NOEXCEPT
 #if defined(__clang__)
 #define RAPIDJSON_HAS_CXX11_NOEXCEPT __has_feature(cxx_noexcept)
-#elif (defined(RAPIDJSON_GNUC) && (RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4,6,0)) && defined(__GXX_EXPERIMENTAL_CXX0X__)) || \
+#elif (defined(RAPIDJSON_GNUC) && (RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4, 6, 0)) && defined(__GXX_EXPERIMENTAL_CXX0X__)) || \
     (defined(_MSC_VER) && _MSC_VER >= 1900) || \
     (defined(__SUNPRO_CC) && __SUNPRO_CC >= 0x5140 && defined(__GXX_EXPERIMENTAL_CXX0X__))
 #define RAPIDJSON_HAS_CXX11_NOEXCEPT 1
@@ -588,7 +591,7 @@ RAPIDJSON_NAMESPACE_END
 #ifndef RAPIDJSON_HAS_CXX11_RANGE_FOR
 #if defined(__clang__)
 #define RAPIDJSON_HAS_CXX11_RANGE_FOR __has_feature(cxx_range_for)
-#elif (defined(RAPIDJSON_GNUC) && (RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4,6,0)) && defined(__GXX_EXPERIMENTAL_CXX0X__)) || \
+#elif (defined(RAPIDJSON_GNUC) && (RAPIDJSON_GNUC >= RAPIDJSON_VERSION_CODE(4, 6, 0)) && defined(__GXX_EXPERIMENTAL_CXX0X__)) || \
       (defined(_MSC_VER) && _MSC_VER >= 1700) || \
       (defined(__SUNPRO_CC) && __SUNPRO_CC >= 0x5140 && defined(__GXX_EXPERIMENTAL_CXX0X__))
 #define RAPIDJSON_HAS_CXX11_RANGE_FOR 1
@@ -613,15 +616,15 @@ RAPIDJSON_NAMESPACE_END
 //!@endcond
 
 //! Assertion (in non-throwing contexts).
- /*! \ingroup RAPIDJSON_CONFIG
-    Some functions provide a \c noexcept guarantee, if the compiler supports it.
-    In these cases, the \ref RAPIDJSON_ASSERT macro cannot be overridden to
-    throw an exception.  This macro adds a separate customization point for
-    such cases.
+/*! \ingroup RAPIDJSON_CONFIG
+   Some functions provide a \c noexcept guarantee, if the compiler supports it.
+   In these cases, the \ref RAPIDJSON_ASSERT macro cannot be overridden to
+   throw an exception.  This macro adds a separate customization point for
+   such cases.
 
-    Defaults to C \c assert() (as \ref RAPIDJSON_ASSERT), if \c noexcept is
-    supported, and to \ref RAPIDJSON_ASSERT otherwise.
- */
+   Defaults to C \c assert() (as \ref RAPIDJSON_ASSERT), if \c noexcept is
+   supported, and to \ref RAPIDJSON_ASSERT otherwise.
+*/
 
 ///////////////////////////////////////////////////////////////////////////////
 // RAPIDJSON_NOEXCEPT_ASSERT
@@ -661,15 +664,15 @@ RAPIDJSON_NAMESPACE_END
 RAPIDJSON_NAMESPACE_BEGIN
 
 //! Type of JSON value
-enum Type {
-    kNullType = 0,      //!< null
-    kFalseType = 1,     //!< false
-    kTrueType = 2,      //!< true
-    kObjectType = 3,    //!< object
-    kArrayType = 4,     //!< array 
-    kStringType = 5,    //!< string
-    kNumberType = 6     //!< number
-};
+    enum Type {
+        kNullType = 0,      //!< null
+        kFalseType = 1,     //!< false
+        kTrueType = 2,      //!< true
+        kObjectType = 3,    //!< object
+        kArrayType = 4,     //!< array
+        kStringType = 5,    //!< string
+        kNumberType = 6     //!< number
+    };
 
 RAPIDJSON_NAMESPACE_END
 

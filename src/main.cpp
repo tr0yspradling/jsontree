@@ -5,6 +5,8 @@
 #include "application.h"
 #include "projectdefinitions.h"
 
+#include "rapidjson/document.h"
+
 int main(int argc, char **argv) {
     Glib::setenv("GSETTINGS_SCHEMA_DIR", projectdefinitions::getGeneratedDataDirectory(), false);
     auto app = Application::create();

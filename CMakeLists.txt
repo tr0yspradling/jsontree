@@ -21,5 +21,6 @@ find_package(GTKMM)
 add_subdirectory(src)
 add_subdirectory(data)
 add_subdirectory(test)
+add_subdirectory(include/rapidjson)
 
 install(FILES cmake/uninstall.sh DESTINATION ${PROJECT_BINARY_DIR} PERMISSIONS OWNER_EXECUTE OWNER_READ OWNER_WRITE)
