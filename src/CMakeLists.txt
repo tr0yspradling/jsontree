@@ -5,17 +5,17 @@ add_executable(
         window.cpp
         preferences.cpp
         utils.cpp
-        ${GENERATED_DATA_DIR}/resources.c
+        ${DATA_DIR}/resources.c
 )
 
 target_link_libraries(${PROJECT_NAME}
         GTKMM
         )
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${GENERATED_SOURCES_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCES_DIR})
 
 compile_resources(
-        ${GENERATED_DATA_DIR}/resources.c
+        ${DATA_DIR}/resources.c
         window.glade
         headerbar.glade
         menu.glade

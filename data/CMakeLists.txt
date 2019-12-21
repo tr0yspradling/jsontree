@@ -1,7 +1,7 @@
-set(GRESOURCE_FILE ${GENERATED_DATA_DIR}/${PROJECT_NAME}.gresource.xml)
-set(GSCHEMA_FILE ${GENERATED_DATA_DIR}/${APPLICATION_ID}.gschema.xml)
-set(DESKTOP_FILE ${GENERATED_DATA_DIR}/${APPLICATION_ID}.desktop)
-set(ICON_FILE ${GENERATED_DATA_DIR}/${PROJECT_NAME}.png)
+set(GRESOURCE_FILE ${DATA_DIR}/${PROJECT_NAME}.gresource.xml)
+set(GSCHEMA_FILE ${DATA_DIR}/${APPLICATION_ID}.gschema.xml)
+set(DESKTOP_FILE ${DATA_DIR}/${APPLICATION_ID}.desktop)
+set(ICON_FILE ${DATA_DIR}/${PROJECT_NAME}.png)
 
 configure_file(gresource.xml.in ${GRESOURCE_FILE})
 configure_file(gschema.xml.in ${GSCHEMA_FILE})

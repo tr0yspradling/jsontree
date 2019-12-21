@@ -1,7 +1,7 @@
 macro(compile_resources OUTPUT)
     find_program(GLIB_RESOURCE_COMPILER NAMES glib-compile-resources REQUIRED)
 
-    set(GRESOURCE_FILE ${GENERATED_DATA_DIR}/${PROJECT_NAME}.gresource.xml)
+    set(GRESOURCE_FILE ${DATA_DIR}/${PROJECT_NAME}.gresource.xml)
     set(WORK_DIR ${PROJECT_SOURCE_DIR}/data)
 
     if(${ARGC} GREATER 1)

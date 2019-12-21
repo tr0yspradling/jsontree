@@ -21,11 +21,11 @@ static std::string getApplicationPrefix() {
 }
 
 static std::string getGeneratedFilesDirectory() {
-    return "@GENERATED_FILES_DIR@";
+    return "@FILES_DIR@";
 }
 
 static std::string getGeneratedDataDirectory() {
-    return "@GENERATED_DATA_DIR@";
+    return "@DATA_DIR@";
 }
 }
 

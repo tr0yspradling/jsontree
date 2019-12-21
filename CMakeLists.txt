@@ -9,11 +9,12 @@ list(INSERT CMAKE_MODULE_PATH 0 ${PROJECT_SOURCE_DIR}/cmake)
 include(GlibUtils)
 include(InstallScript)
 
-set(GENERATED_FILES_DIR ${PROJECT_BINARY_DIR}/generated)
-set(GENERATED_SOURCES_DIR ${GENERATED_FILES_DIR}/src)
-set(GENERATED_DATA_DIR ${GENERATED_FILES_DIR}/data)
+set(FILES_DIR ${PROJECT_BINARY_DIR}/generated)
+set(SOURCES_DIR ${FILES_DIR}/src)
+set(DATA_DIR ${FILES_DIR}/data)
+set(INSTALL_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
 
-configure_file(cmake/projectdefinitions.h.in ${GENERATED_SOURCES_DIR}/projectdefinitions.h)
+configure_file(cmake/projectdefinitions.h.in ${SOURCES_DIR}/projectdefinitions.h)
 
 find_package(GTKMM)
 
