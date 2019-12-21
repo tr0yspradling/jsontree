@@ -62,7 +62,8 @@ void Application::on_hide_window(Gtk::Window *window) {
 }
 
 void Application::on_action_open_file() {
-
+    // Open OpenFileWindow instance
+    // Capture filePath once a file has been selected.
 }
 
 void Application::on_action_preferences() {
