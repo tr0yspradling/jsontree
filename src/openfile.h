@@ -3,13 +3,16 @@
 
 #include <gtkmm.h>
 #include <iostream>
-#include "rapidjson/document.h"
+#include <string>
+#include "utils.h"
 
 class OpenFileWindow : public Gtk::Window {
 public:
     OpenFileWindow();
 
     virtual ~OpenFileWindow();
+
+    std::string filePath;
 
 protected:
     //Signal handlers:
