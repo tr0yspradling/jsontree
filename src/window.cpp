@@ -13,6 +13,7 @@ Window::Window(Gtk::ApplicationWindow::BaseObjectType *cobject, const Glib::RefP
           headerBar(nullptr),
           firstLabel(nullptr),
           secondLabel(nullptr) {
+
     builder->get_widget("firstLabel", firstLabel);
     if (!firstLabel) {
         throw std::runtime_error("No \"firstLabel\" object in window.glade");

@@ -9,9 +9,11 @@ add_executable(
         ${DATA_DIR}/resources.c
 )
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(
+        ${PROJECT_NAME}
+        PRIVATE rapidjson
         GTKMM
-        )
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCES_DIR})
 

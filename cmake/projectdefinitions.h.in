@@ -4,29 +4,29 @@
 #include <string>
 
 namespace projectdefinitions {
-static std::string getProjectName() {
-    return "@PROJECT_NAME@";
-}
+    static std::string getProjectName() {
+        return "@PROJECT_NAME@";
+    }
 
-static std::string getProjectVersion() {
-    return "@PROJECT_VERSION@";
-}
+    static std::string getProjectVersion() {
+        return "@PROJECT_VERSION@";
+    }
 
-static std::string getApplicationID() {
-    return "@APPLICATION_ID@";
-}
+    static std::string getApplicationID() {
+        return "@APPLICATION_ID@";
+    }
 
-static std::string getApplicationPrefix() {
-    return "@APPLICATION_PREFIX@";
-}
+    static std::string getApplicationPrefix() {
+        return "@APPLICATION_PREFIX@";
+    }
 
-static std::string getGeneratedFilesDirectory() {
-    return "@FILES_DIR@";
-}
+    static std::string getGeneratedFilesDirectory() {
+        return "@FILES_DIR@";
+    }
 
-static std::string getGeneratedDataDirectory() {
-    return "@DATA_DIR@";
-}
+    static std::string getGeneratedDataDirectory() {
+        return "@DATA_DIR@";
+    }
 }
 
 #endif  // CONFIG_H_IN
