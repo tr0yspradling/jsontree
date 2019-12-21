@@ -1,0 +1,5 @@
+/home/troy/Projects/test/build/uninstall.sh
+/usr/local/bin/ApplicationTemplate
+/usr/share/glib-2.0/schemas/org.gtkmm.ApplicationTemplate.gschema.xml
+/usr/share/applications/org.gtkmm.ApplicationTemplate.desktop
+/usr/share/icons/ApplicationTemplate/ApplicationTemplate.png

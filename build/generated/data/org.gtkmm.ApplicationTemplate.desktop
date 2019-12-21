@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=ApplicationTemplate
+GenericName=ApplicationTemplate
+Comment=Application
+Icon=/usr/share/icons/ApplicationTemplate/ApplicationTemplate.png
+StartupNotify=true
+Exec=ApplicationTemplate
+Categories=GNOME;GTK;

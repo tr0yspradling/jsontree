@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="jsontree"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\src\;CMake Files\data\;CMake Files\data\icons\;CMake Files\data\icons\48x48\;CMake Files\test\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="jsontree">
+				<Option output="/home/troy/Projects/jsontree/cmake-build-debug/src/jsontree" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/troy/Projects/jsontree/cmake-build-debug/generated/src"/>
+					<Add directory="/usr/include/gtkmm-3.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/gtkmm-3.0/include"/>
+					<Add directory="/usr/include/atkmm-1.6"/>
+					<Add directory="/usr/include/gtk-3.0/unix-print"/>
+					<Add directory="/usr/include/gdkmm-3.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/gdkmm-3.0/include"/>
+					<Add directory="/usr/include/giomm-2.4"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/giomm-2.4/include"/>
+					<Add directory="/usr/include/pangomm-1.4"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/pangomm-1.4/include"/>
+					<Add directory="/usr/include/glibmm-2.4"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/glibmm-2.4/include"/>
+					<Add directory="/usr/include/gtk-3.0"/>
+					<Add directory="/usr/include/at-spi2-atk/2.0"/>
+					<Add directory="/usr/include/at-spi-2.0"/>
+					<Add directory="/usr/include/dbus-1.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/dbus-1.0/include"/>
+					<Add directory="/usr/include/gio-unix-2.0"/>
+					<Add directory="/usr/include/cairo"/>
+					<Add directory="/usr/include/pango-1.0"/>
+					<Add directory="/usr/include/harfbuzz"/>
+					<Add directory="/usr/include/atk-1.0"/>
+					<Add directory="/usr/include/cairomm-1.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/cairomm-1.0/include"/>
+					<Add directory="/usr/include/pixman-1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/libpng16"/>
+					<Add directory="/usr/include/sigc++-2.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/sigc++-2.0/include"/>
+					<Add directory="/usr/include/gdk-pixbuf-2.0"/>
+					<Add directory="/usr/include/glib-2.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/glib-2.0/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 jsontree"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="jsontree/fast">
+				<Option output="/home/troy/Projects/jsontree/cmake-build-debug/src/jsontree" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/troy/Projects/jsontree/cmake-build-debug/generated/src"/>
+					<Add directory="/usr/include/gtkmm-3.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/gtkmm-3.0/include"/>
+					<Add directory="/usr/include/atkmm-1.6"/>
+					<Add directory="/usr/include/gtk-3.0/unix-print"/>
+					<Add directory="/usr/include/gdkmm-3.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/gdkmm-3.0/include"/>
+					<Add directory="/usr/include/giomm-2.4"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/giomm-2.4/include"/>
+					<Add directory="/usr/include/pangomm-1.4"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/pangomm-1.4/include"/>
+					<Add directory="/usr/include/glibmm-2.4"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/glibmm-2.4/include"/>
+					<Add directory="/usr/include/gtk-3.0"/>
+					<Add directory="/usr/include/at-spi2-atk/2.0"/>
+					<Add directory="/usr/include/at-spi-2.0"/>
+					<Add directory="/usr/include/dbus-1.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/dbus-1.0/include"/>
+					<Add directory="/usr/include/gio-unix-2.0"/>
+					<Add directory="/usr/include/cairo"/>
+					<Add directory="/usr/include/pango-1.0"/>
+					<Add directory="/usr/include/harfbuzz"/>
+					<Add directory="/usr/include/atk-1.0"/>
+					<Add directory="/usr/include/cairomm-1.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/cairomm-1.0/include"/>
+					<Add directory="/usr/include/pixman-1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/libpng16"/>
+					<Add directory="/usr/include/sigc++-2.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/sigc++-2.0/include"/>
+					<Add directory="/usr/include/gdk-pixbuf-2.0"/>
+					<Add directory="/usr/include/glib-2.0"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/glib-2.0/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 jsontree/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gschemas.compiled">
+				<Option working_dir="/home/troy/Projects/jsontree/cmake-build-debug/data"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/data/Makefile&quot;  VERBOSE=1 gschemas.compiled"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/data/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/data/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/troy/Projects/jsontree/cmake-build-debug/data/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/troy/Projects/jsontree/cmake-build-debug/generated/data/resources.c">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/cmake-build-debug/generated/data/resources.c.rule">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/application.cpp">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/application.h">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/main.cpp">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/preferences.cpp">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/preferences.h">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/utils.cpp">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/utils.h">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/window.cpp">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/window.h">
+			<Option target="jsontree"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/cmake/FindGTKMM.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/cmake/GlibUtils.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/cmake/InstallScript.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/cmake/projectdefinitions.h.in">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/data/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\data\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/data/desktop.in">
+			<Option virtualFolder="CMake Files\data\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/data/gresource.xml.in">
+			<Option virtualFolder="CMake Files\data\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/data/gschema.xml.in">
+			<Option virtualFolder="CMake Files\data\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/data/icons/48x48/icon.png">
+			<Option virtualFolder="CMake Files\data\icons\48x48\"/>
+		</Unit>
+		<Unit filename="/home/troy/Projects/jsontree/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
