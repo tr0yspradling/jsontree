@@ -1,3 +1,7 @@
+.idea/
+.atom/
+.vscode/
+
 # Prerequisites
 *.d
 
