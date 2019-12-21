@@ -18,6 +18,6 @@ protected:
     void on_button_folder_clicked();
 
     //Child widgets:
-    Gtk::ButtonBox m_ButtonBox;
-    Gtk::Button m_Button_File, m_Button_Folder;
+    Gtk::ButtonBox buttonBox;
+    Gtk::Button fileButton, folderButton;
 };
