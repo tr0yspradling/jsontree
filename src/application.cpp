@@ -1,7 +1,5 @@
-#include "application.h"
-
 #include <iostream>
-
+#include "application.h"
 #include "projectdefinitions.h"
 
 Application::Application() : Gtk::Application(projectdefinitions::getApplicationID() + ".application") {

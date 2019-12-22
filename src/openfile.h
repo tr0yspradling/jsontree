@@ -6,7 +6,7 @@
 #include <string>
 #include "utils.h"
 
-class OpenFileWindow : public Gtk::Window {
+class OpenFileWindow : public Gtk::FileChooserDialog {
 public:
     OpenFileWindow();
 
