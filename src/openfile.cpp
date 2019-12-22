@@ -25,12 +25,6 @@ void OpenFileWindow::on_button_file_clicked() {
     dialog.add_button("_Open", Gtk::RESPONSE_OK);
 
     //Add filters, so that only certain file types can be selected:
-
-    auto filter_text = Gtk::FileFilter::create();
-    filter_text->set_name("Text files");
-    filter_text->add_mime_type("text/plain");
-    dialog.add_filter(filter_text);
-
     auto filter_json = Gtk::FileFilter::create();
     filter_json->set_name("JSON files");
     filter_json->add_mime_type("application/json");
