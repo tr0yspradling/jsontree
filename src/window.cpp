@@ -28,7 +28,7 @@ Window::Window(Gtk::ApplicationWindow::BaseObjectType *cobject, const Glib::RefP
     settings->bind("first", firstLabel->property_label());
     settings->bind("second", secondLabel->property_visible());
 
-    set_icon(Gdk::Pixbuf::create_from_resource(projectdefinitions::getApplicationPrefix() + "icons/48x48/icon.png"));
+    set_icon(Gdk::Pixbuf::create_from_resource(projectdefinitions::getApplicationPrefix() + "icons/64x64/icon.png"));
     setHeaderBar();
 }
 
