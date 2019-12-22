@@ -4,7 +4,6 @@ add_executable(
         application.cpp
         window.cpp
         preferences.cpp
-        openfile.cpp
         utils.cpp
         ${DATA_DIR}/resources.c
 )
