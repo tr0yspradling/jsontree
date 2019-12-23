@@ -6,7 +6,7 @@ add_executable(
         preferences.cpp
         utils.cpp
         ${DATA_DIR}/resources.c
-)
+        model.h)
 
 target_link_libraries(
         ${PROJECT_NAME}

@@ -1,13 +1,11 @@
 #include <iostream>
 #include "application.h"
 #include "projectdefinitions.h"
+#include "utils.h"
 
-Application::Application() : Gtk::Application(projectdefinitions::getApplicationID() + ".application")
-{
-}
+Application::Application() : Gtk::Application(projectdefinitions::getApplicationID() + ".application") {}
 
-Application::~Application() {
-}
+Application::~Application() {}
 
 Glib::RefPtr<Application> Application::create() {
     return Glib::RefPtr<Application>(new Application());
@@ -101,7 +99,10 @@ void Application::on_action_open_file() {
         }
     }
     std::cout << filename << std::endl;
-    // update_tree_view(filename);
+    Window *window = dynamic_cast<Window *>(this->get_active_window());
+    rapidjson::Document document;
+    document.Parse(read_file(filename).c_str());
+    window->load_tree_view(document);
 }
 
 void Application::on_action_preferences() {
