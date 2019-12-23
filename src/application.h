@@ -1,8 +1,9 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
+#include <iostream>
 #include <gtkmm/application.h>
-
+#include <gtkmm/filechooserdialog.h>
 #include "preferences.h"
 #include "window.h"
 
@@ -28,6 +29,7 @@ private:
     void on_action_preferences();
 
     void on_action_quit();
+
 };
 
 #endif  // APPLICATION_H
