@@ -15,3 +15,8 @@ $ cmake .. && make
 
 # License
 ......free?
+
+# Notes
+- Capture root object & iterate over it's children
+    - if child is array or object, recursively iterate again
+    - otherwise, add child to node's data 

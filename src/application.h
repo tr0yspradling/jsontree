@@ -5,7 +5,7 @@
 #include <gtkmm/application.h>
 #include <gtkmm/filechooserdialog.h>
 #include "preferences.h"
-#include "window.h"
+#include "treeview.h"
 
 class Application : public Gtk::Application {
 public:
@@ -16,7 +16,7 @@ public:
 private:
     Application();
 
-    Window *createWindow();
+    TreeViewWindow *createWindow();
 
     void on_activate() override;
 

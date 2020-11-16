@@ -18,8 +18,6 @@ public:
 private:
     Glib::RefPtr<Gtk::Builder> builder;
     Glib::RefPtr<Gio::Settings> settings;
-    Gtk::ComboBoxText *comboBoxText;
-    Gtk::CheckButton *checkButton;
 };
 
 #endif  // PREFERENCES_H

@@ -2,11 +2,11 @@ add_executable(
         ${PROJECT_NAME}
         main.cpp
         application.cpp
-        window.cpp
+        treeview.cpp
         preferences.cpp
         utils.cpp
         ${DATA_DIR}/resources.c
-        model.h)
+)
 
 target_link_libraries(
         ${PROJECT_NAME}

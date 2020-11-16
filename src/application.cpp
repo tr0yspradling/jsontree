@@ -11,8 +11,8 @@ Glib::RefPtr<Application> Application::create() {
     return Glib::RefPtr<Application>(new Application());
 }
 
-Window *Application::createWindow() {
-    auto window = Window::create();
+TreeViewWindow *Application::createWindow() {
+    auto window = TreeViewWindow::create();
     add_window(*window);
     window->signal_hide().connect(sigc::bind(sigc::mem_fun(*this, &Application::on_hide_window), window));
     return window;
@@ -98,11 +98,12 @@ void Application::on_action_open_file() {
             break;
         }
     }
-    std::cout << filename << std::endl;
-    Window *window = dynamic_cast<Window *>(this->get_active_window());
+    std::cout << filename << '\n';
+    auto window = (TreeViewWindow*) get_active_window();
     rapidjson::Document document;
     document.Parse(read_file(filename).c_str());
     window->load_tree_view(document);
+    // delete &window;
 }
 
 void Application::on_action_preferences() {
@@ -116,7 +117,6 @@ void Application::on_action_preferences() {
         std::cerr << "Application::on_action_preferences(): " << ex.what() << std::endl;
     }
 }
-
 void Application::on_action_quit() {
     auto windows = get_windows();
     for (auto window : windows) {
