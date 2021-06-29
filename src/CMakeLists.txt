@@ -1,12 +1,12 @@
+message(STATUS "project_name ${PROJECT_NAME}")
+message(STATUS "data_dir ${DATA_DIR}")
+message(STATUS "sources_dir ${SOURCES_DIR}")
+
 add_executable(
         ${PROJECT_NAME}
-        main.cpp
-        application.cpp
-        window.cpp
-        preferences.cpp
-        utils.cpp
+        ${SOURCES_DIR}
         ${DATA_DIR}/resources.c
-        model.h)
+)
 
 target_link_libraries(
         ${PROJECT_NAME}
@@ -16,12 +16,11 @@ target_link_libraries(
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCES_DIR})
 
+# set(RAW_DATA_DIR ${})
+
 compile_resources(
         ${DATA_DIR}/resources.c
-        window.glade
-        headerbar.glade
-        menu.glade
-        preferences.glade
+        ${DATA_DIR/ui}
 )
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
