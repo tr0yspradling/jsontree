@@ -15,7 +15,7 @@
 #include <gtkmm/treeview.h>
 #include <gtkmm/settings.h>
 #include <gtkmm/scrolledwindow.h>
-#include "rapidjson/document.h"
+#include "document.h"
 #include "projectdefinitions.h"
 
 class TreeViewWindow : public Gtk::ApplicationWindow {
