@@ -64,7 +64,7 @@ void Application::on_action_open_file() {
 
     dialog.set_transient_for(*this->get_active_window());
 
-    // Add response buttons the the dialog:
+    // Add response buttons to the dialog:
     dialog.add_button("_Cancel", Gtk::RESPONSE_CANCEL);
     dialog.add_button("_Open", Gtk::RESPONSE_OK);
 
@@ -98,12 +98,8 @@ void Application::on_action_open_file() {
             break;
         }
     }
-    std::cout << filename << '\n';
     auto window = (TreeViewWindow*) get_active_window();
-    rapidjson::Document document;
-    document.Parse(read_file(filename).c_str());
-    window->load_tree_view(document);
-    // delete &window;
+    window->serialize_json_by_filename(filename);
 }
 
 void Application::on_action_preferences() {

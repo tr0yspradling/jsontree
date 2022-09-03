@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 #include <giomm/settings.h>
 #include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
@@ -16,6 +17,7 @@
 #include <gtkmm/settings.h>
 #include <gtkmm/scrolledwindow.h>
 #include "document.h"
+#include "utils.h"
 #include "projectdefinitions.h"
 
 class TreeViewWindow : public Gtk::ApplicationWindow {
@@ -25,24 +27,23 @@ public:
     virtual ~TreeViewWindow();
 
     static TreeViewWindow *create();
-    Gtk::TreeModel generateModel();
 
-    void load_tree_view(rapidjson::Document&);
-    rapidjson::Document* document;
-
+    void serialize_json_by_filename(const std::string&);
+    rapidjson::Document* jsonDocument;
 private:
+    std::string jsonFileName;
     Glib::RefPtr<Gtk::Builder> builder;
     Glib::RefPtr<Gio::Settings> settings;
     Gtk::HeaderBar *headerBar;
-
     void setHeaderBar();
-    rapidjson::Value get_model_child(rapidjson::Value&);
+    // rapidjson::Value get_model_child(rapidjson::Value&);
     std::vector<const char*> typeNames;
 
 protected:
     Gtk::ScrolledWindow scrolledWindow;
-    Gtk::TreeView treeView;
-    Glib::RefPtr<Gtk::TreeStore> treeModel;
+    Glib::RefPtr<Gtk::TreeView> treeView;
+    Glib::RefPtr<Gtk::TreeStore> treeStore;
+    Gtk::TreeModelColumnRecord* columnRecord;
 };
 
 #endif  // WINDOW_H

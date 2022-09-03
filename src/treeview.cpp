@@ -5,7 +5,8 @@ TreeViewWindow::TreeViewWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, 
           builder(builder),
           settings(nullptr),
           headerBar(nullptr),
-          treeView() {
+          treeView(nullptr),
+          treeStore(nullptr) {
     set_icon(Gdk::Pixbuf::create_from_resource(projectdefinitions::getApplicationPrefix() + "icons/64x64/icon.png"));
     setHeaderBar();
 
@@ -17,7 +18,7 @@ TreeViewWindow::TreeViewWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, 
 }
 
 TreeViewWindow::~TreeViewWindow() {
-    delete document;
+    delete jsonDocument;
 }
 
 TreeViewWindow *TreeViewWindow::create() {
@@ -43,20 +44,21 @@ void TreeViewWindow::setHeaderBar() {
     }
 }
 
-Gtk::TreeModel TreeViewWindow::generateModel() {
-    for (auto& m : document->GetObject()) {
-        std::string key = m.name.GetString();
-        std::string type = typeNames[m.value.GetType()];
-        printf("Type of member %s is %s\n", m.name.GetString(), type.c_str());
+// rapidjson::Value TreeViewWindow::get_model_child(rapidjson::Value &node) {}
+
+void TreeViewWindow::serialize_json_by_filename(const std::string& filename) {
+    jsonDocument = new rapidjson::Document ();
+    jsonDocument->Parse(read_file(filename).c_str());
+    for (auto& _object : jsonDocument->GetObject()) {
+        std::string key = _object.name.GetString();
+        std::string type = typeNames[_object.value.GetType()];
+        printf("Type of member %s is %s\n", _object.name.GetString(), type.c_str());
     }
-}
-
-rapidjson::Value TreeViewWindow::get_model_child(rapidjson::Value &node) {
-
-}
-
-void TreeViewWindow::load_tree_view(rapidjson::Document &data) {
-    document = &data;
-    // generateModel();
-    Gtk::TreeModel _model = generateModel();
+    columnRecord = new Gtk::TreeModelColumnRecord();
+    Gtk::TreeModelColumn<Glib::ustring> *column = new Gtk::TreeModelColumn<Glib::ustring>();
+    columnRecord->add(*column);
+    treeStore->set_column_types(*columnRecord);
+    treeView->set_model(treeStore);
+    std::cout << "DONE" << std::endl;
+    return;
 }

@@ -17,7 +17,7 @@ private:
     Application();
 
     TreeViewWindow *createWindow();
-
+    
     void on_activate() override;
 
     void on_startup() override;

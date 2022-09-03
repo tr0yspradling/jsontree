@@ -1,0 +1,87 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"data/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "/usr/share/glib-2.0/schemas",
+			"paths" : 
+			[
+				"cmake-build-minsizerel/generated/data/tr0y.me.jsontree.gschema.xml"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "/usr/share/applications",
+			"paths" : 
+			[
+				"cmake-build-minsizerel/generated/data/tr0y.me.jsontree.desktop"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "/usr/share/icons/jsontree",
+			"paths" : 
+			[
+				"cmake-build-minsizerel/generated/data/jsontree.png"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"scriptFile" : "cmake/InstallScript.cmake",
+			"type" : "script"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "data",
+		"source" : "data"
+	}
+}
