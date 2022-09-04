@@ -17,8 +17,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCES_DIR})
 compile_resources(
     ${DATA_DIR}/resources.c
     window.glade
-    headerbar.glade
     menu.glade
+    headerbar.glade
     preferences.glade
 )
 

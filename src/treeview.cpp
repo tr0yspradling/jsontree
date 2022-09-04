@@ -22,12 +22,12 @@ TreeViewWindow::~TreeViewWindow() {
 }
 
 TreeViewWindow *TreeViewWindow::create() {
-    auto builder = Gtk::Builder::create_from_resource(projectdefinitions::getApplicationPrefix() + "ui/window.glade");
+    auto builder = Gtk::Builder::create_from_resource(projectdefinitions::getApplicationPrefix() + "ui/main.glade");
 
     TreeViewWindow *window = nullptr;
     builder->get_widget_derived("window", window);
     if (!window) {
-        throw std::runtime_error("No \"window\" object in window.glade");
+        throw std::runtime_error("No \"window\" object in main.glade");
     }
     return window;
 }
@@ -44,8 +44,6 @@ void TreeViewWindow::setHeaderBar() {
     }
 }
 
-// rapidjson::Value TreeViewWindow::get_model_child(rapidjson::Value &node) {}
-
 void TreeViewWindow::serialize_json_by_filename(const std::string& filename) {
     jsonDocument = new rapidjson::Document ();
     jsonDocument->Parse(read_file(filename).c_str());
@@ -60,5 +58,4 @@ void TreeViewWindow::serialize_json_by_filename(const std::string& filename) {
     treeStore->set_column_types(*columnRecord);
     treeView->set_model(treeStore);
     std::cout << "DONE" << std::endl;
-    return;
 }

@@ -82,13 +82,14 @@ void Application::on_action_open_file() {
     // Show the dialog and wait for a user response:
     int result = dialog.run();
 
-    std::string filename = "";
+    std::string filename;
 
     // Handle the response:
     switch (result) {
         case (Gtk::RESPONSE_OK): {
             // Notice that this is a std::string, not a Glib::ustring.
             filename = dialog.get_filename();
+            std::cout << "" << std::endl;
             break;
         }
         case (Gtk::RESPONSE_CANCEL): {
@@ -98,8 +99,8 @@ void Application::on_action_open_file() {
             break;
         }
     }
-    auto window = (TreeViewWindow*) get_active_window();
-    window->serialize_json_by_filename(filename);
+    // auto window = (TreeViewWindow*) get_active_window();
+    // window->serialize_json_by_filename(filename);
 }
 
 void Application::on_action_preferences() {
