@@ -499,7 +499,8 @@
 				3,
 				4,
 				6,
-				8
+				8,
+				10
 			]
 		}
 	],
@@ -635,7 +636,8 @@
 				3,
 				4,
 				6,
-				8
+				8,
+				10
 			]
 		},
 		{
@@ -645,14 +647,15 @@
 				2,
 				5,
 				7,
-				9
+				9,
+				11
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				10
+				12
 			]
 		}
 	],
@@ -691,6 +694,17 @@
 		{
 			"backtrace" : 1,
 			"path" : "src/preferences.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/treestore.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/treestore.h",
 			"sourceGroupIndex" : 1
 		},
 		{

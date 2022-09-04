@@ -43,7 +43,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "MinSizeRel"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/tspradli/CLionProjects/jsontree/cmake-build-default"
+			"value" : "/home/tspradli/CLionProjects/jsontree/cmake-build-minsizerel"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -139,10 +139,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "CXX compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "UNINITIALIZED",
 			"value" : "/usr/bin/clang++"
 		},
 		{
@@ -267,10 +267,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "UNINITIALIZED",
 			"value" : "/usr/bin/clang"
 		},
 		{
@@ -1695,7 +1695,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/tspradli/CLionProjects/jsontree/cmake-build-default"
+			"value" : "/home/tspradli/CLionProjects/jsontree/cmake-build-minsizerel"
 		},
 		{
 			"name" : "jsontree_IS_TOP_LEVEL",
@@ -2079,7 +2079,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/tspradli/CLionProjects/jsontree/cmake-build-default/include/rapidjson"
+			"value" : "/home/tspradli/CLionProjects/jsontree/cmake-build-minsizerel/include/rapidjson"
 		},
 		{
 			"name" : "rapidjson_IS_TOP_LEVEL",

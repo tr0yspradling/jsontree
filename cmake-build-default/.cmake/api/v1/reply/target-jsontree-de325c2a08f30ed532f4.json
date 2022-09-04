@@ -56,9 +56,6 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-Os -DNDEBUG"
-				},
-				{
 					"backtrace" : 3,
 					"fragment" : "-pthread"
 				}
@@ -67,7 +64,7 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "/home/tspradli/CLionProjects/jsontree/cmake-build-minsizerel/generated/src"
+					"path" : "/home/tspradli/CLionProjects/jsontree/cmake-build-default/generated/src"
 				},
 				{
 					"backtrace" : 3,
@@ -279,9 +276,6 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-Os -DNDEBUG"
-				},
-				{
 					"backtrace" : 3,
 					"fragment" : "-pthread"
 				}
@@ -290,7 +284,7 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "/home/tspradli/CLionProjects/jsontree/cmake-build-minsizerel/generated/src"
+					"path" : "/home/tspradli/CLionProjects/jsontree/cmake-build-default/generated/src"
 				},
 				{
 					"backtrace" : 3,
@@ -499,7 +493,8 @@
 				3,
 				4,
 				6,
-				8
+				8,
+				10
 			]
 		}
 	],
@@ -522,10 +517,6 @@
 	{
 		"commandFragments" : 
 		[
-			{
-				"fragment" : "-Os -DNDEBUG",
-				"role" : "flags"
-			},
 			{
 				"fragment" : "-rdynamic",
 				"role" : "flags"
@@ -635,7 +626,8 @@
 				3,
 				4,
 				6,
-				8
+				8,
+				10
 			]
 		},
 		{
@@ -645,14 +637,15 @@
 				2,
 				5,
 				7,
-				9
+				9,
+				11
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				10
+				12
 			]
 		}
 	],
@@ -662,7 +655,7 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "cmake-build-minsizerel/generated/data/resources.c",
+			"path" : "cmake-build-default/generated/data/resources.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -696,6 +689,17 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
+			"path" : "src/treestore.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/treestore.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
 			"path" : "src/treeview.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -718,7 +722,7 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "cmake-build-minsizerel/generated/data/resources.c.rule",
+			"path" : "cmake-build-default/generated/data/resources.c.rule",
 			"sourceGroupIndex" : 2
 		}
 	],

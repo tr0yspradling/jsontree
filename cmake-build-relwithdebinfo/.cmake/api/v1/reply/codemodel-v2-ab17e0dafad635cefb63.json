@@ -14,7 +14,7 @@
 						4
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-MinSizeRel-ce41cfbc7392996d1a57.json",
+					"jsonFile" : "directory-.-RelWithDebInfo-e40ecc459ada9d7b5686.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.2"
@@ -25,7 +25,7 @@
 				{
 					"build" : "src",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-src-MinSizeRel-fec82bc6cc6d0fa4b16b.json",
+					"jsonFile" : "directory-src-RelWithDebInfo-fec82bc6cc6d0fa4b16b.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.2"
@@ -41,7 +41,7 @@
 				{
 					"build" : "data",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-data-MinSizeRel-332145ba048c4fd211f1.json",
+					"jsonFile" : "directory-data-RelWithDebInfo-5be95883e8b4e32de71f.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.2"
@@ -56,7 +56,7 @@
 				},
 				{
 					"build" : "test",
-					"jsonFile" : "directory-test-MinSizeRel-451c0598f41488bb20b9.json",
+					"jsonFile" : "directory-test-RelWithDebInfo-451c0598f41488bb20b9.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.2"
@@ -67,7 +67,7 @@
 				},
 				{
 					"build" : "include/rapidjson",
-					"jsonFile" : "directory-include.rapidjson-MinSizeRel-107783f921c5939e9476.json",
+					"jsonFile" : "directory-include.rapidjson-RelWithDebInfo-107783f921c5939e9476.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.2"
@@ -77,7 +77,7 @@
 					"source" : "include/rapidjson"
 				}
 			],
-			"name" : "MinSizeRel",
+			"name" : "RelWithDebInfo",
 			"projects" : 
 			[
 				{
@@ -113,14 +113,14 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "gschemas.compiled::@efda893aa850b0c0e61f",
-					"jsonFile" : "target-gschemas.compiled-MinSizeRel-9245fcf5cdbb4e77d6b2.json",
+					"jsonFile" : "target-gschemas.compiled-RelWithDebInfo-94587eeb5a69eaad2761.json",
 					"name" : "gschemas.compiled",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "jsontree::@145eef247bfb46b6828c",
-					"jsonFile" : "target-jsontree-MinSizeRel-7509e019b02c60216b83.json",
+					"jsonFile" : "target-jsontree-RelWithDebInfo-f16ff36d825495eb5ac3.json",
 					"name" : "jsontree",
 					"projectIndex" : 0
 				}
@@ -130,7 +130,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/tspradli/CLionProjects/jsontree/cmake-build-minsizerel",
+		"build" : "/home/tspradli/CLionProjects/jsontree/cmake-build-relwithdebinfo",
 		"source" : "/home/tspradli/CLionProjects/jsontree"
 	},
 	"version" : 
