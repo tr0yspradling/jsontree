@@ -49,6 +49,8 @@ void Application::on_startup() {
     auto app_menu = Glib::RefPtr<Gio::MenuModel>::cast_dynamic(object);
     if (app_menu) {
         set_app_menu(app_menu);
+        auto n_app_menu = get_app_menu();
+        std::cout << n_app_menu->get_n_items() << std::endl;
     } else {
         std::cerr << "Application::on_startup(): No \"appmenu\" object in menu.glade" << std::endl;
     }
