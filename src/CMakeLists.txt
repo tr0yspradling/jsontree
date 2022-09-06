@@ -1,4 +1,5 @@
 FILE(GLOB SRCFILES *.cpp *.hpp *.c *.h)
+FILE(GLOB GLADEFILES ${DATA_DIR}/ui/*.glade)
 
 add_executable(
     ${PROJECT_NAME}
@@ -14,12 +15,11 @@ target_link_libraries(
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCES_DIR})
 
+# set(RAW_DATA_DIR ${})
+
 compile_resources(
     ${DATA_DIR}/resources.c
-    main.glade
-    menu.glade
-    headerbar.glade
-    preferences.glade
+    ${GLADEFILES}
 )
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
