@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=jsontree
-GenericName=jsontree
-Comment=Application
-Icon=/usr/share/icons/jsontree/jsontree.png
-StartupNotify=true
-Exec=jsontree
-Categories=GNOME;GTK;
