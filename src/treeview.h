@@ -20,13 +20,13 @@
 #include "utils.h"
 #include "projectdefinitions.h"
 
-class TreeViewWindow : public Gtk::ApplicationWindow {
+class MainWindow : public Gtk::ApplicationWindow {
 public:
-    TreeViewWindow(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder);
+    MainWindow(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder);
 
-    virtual ~TreeViewWindow();
+    virtual ~MainWindow();
 
-    static TreeViewWindow *create();
+    static MainWindow *create();
 
     void serialize_json_by_filename(const std::string&);
     rapidjson::Document* jsonDocument;

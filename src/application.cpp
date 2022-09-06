@@ -11,8 +11,8 @@ Glib::RefPtr<Application> Application::create() {
     return Glib::RefPtr<Application>(new Application());
 }
 
-TreeViewWindow *Application::createWindow() {
-    auto window = TreeViewWindow::create();
+MainWindow *Application::createWindow() {
+    auto window = MainWindow::create();
     add_window(*window);
     window->signal_hide().connect(sigc::bind(sigc::mem_fun(*this, &Application::on_hide_window), window));
     return window;
@@ -101,7 +101,7 @@ void Application::on_action_open_file() {
             break;
         }
     }
-    // auto window = (TreeViewWindow*) get_active_window();
+    // auto window = (MainWindow*) get_active_window();
     // window->serialize_json_by_filename(filename);
 }
 

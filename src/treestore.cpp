@@ -3,3 +3,10 @@
 //
 
 #include "treestore.h"
+
+
+JsonTreeStore::JsonTreeStore(Gtk::TreeStore::BaseObjectType *cobject) {
+
+}
+
+JsonTreeStore::~JsonTreeStore() {}

@@ -1,6 +1,6 @@
 #include "treeview.h"
 
-TreeViewWindow::TreeViewWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder)
+MainWindow::MainWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder)
         : Gtk::ApplicationWindow(cobject),
           builder(builder),
           settings(nullptr),
@@ -17,14 +17,14 @@ TreeViewWindow::TreeViewWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, 
     };
 }
 
-TreeViewWindow::~TreeViewWindow() {
+MainWindow::~MainWindow() {
     delete jsonDocument;
 }
 
-TreeViewWindow *TreeViewWindow::create() {
+MainWindow *MainWindow::create() {
     auto builder = Gtk::Builder::create_from_resource(projectdefinitions::getApplicationPrefix() + "ui/main.glade");
 
-    TreeViewWindow *window = nullptr;
+    MainWindow *window = nullptr;
     builder->get_widget_derived("window", window);
     if (!window) {
         throw std::runtime_error("No \"window\" object in main.glade");
@@ -32,7 +32,7 @@ TreeViewWindow *TreeViewWindow::create() {
     return window;
 }
 
-void TreeViewWindow::setHeaderBar() {
+void MainWindow::setHeaderBar() {
     auto builder =
             Gtk::Builder::create_from_resource(projectdefinitions::getApplicationPrefix() + "ui/headerbar.glade");
     builder->get_widget("headerBar", headerBar);
@@ -44,7 +44,7 @@ void TreeViewWindow::setHeaderBar() {
     }
 }
 
-void TreeViewWindow::serialize_json_by_filename(const std::string& filename) {
+void MainWindow::serialize_json_by_filename(const std::string& filename) {
     jsonDocument = new rapidjson::Document ();
     jsonDocument->Parse(read_file(filename).c_str());
     for (auto& _object : jsonDocument->GetObject()) {

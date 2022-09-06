@@ -9,14 +9,14 @@
 
 class Application : public Gtk::Application {
 public:
-    virtual ~Application() override;
+    ~Application() override;
 
     static Glib::RefPtr<Application> create();
 
 private:
     Application();
 
-    TreeViewWindow *createWindow();
+    MainWindow *createWindow();
     
     void on_activate() override;
 

@@ -5,8 +5,15 @@
 #ifndef JSONTREE_TREESTORE_H
 #define JSONTREE_TREESTORE_H
 
+#include <gtkmm/treestore.h>
 
-class treestore {
+
+class JsonTreeStore : public Gtk::TreeStore {
+public:
+    JsonTreeStore(Gtk::TreeStore::BaseObjectType *cobject);
+    ~JsonTreeStore() override;
+
+private:
 
 };
 

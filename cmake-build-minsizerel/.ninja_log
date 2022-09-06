@@ -1,0 +1,18 @@
+# ninja log v5
+3292	3553	1662340404030303319	src/jsontree	cce2ee31d98ee2aa
+51	137	1662340400614284111	src/CMakeFiles/jsontree.dir/treestore.cpp.o	e0f716c91e513578
+68	3292	1662340403764301823	src/CMakeFiles/jsontree.dir/treeview.cpp.o	b3659bc1e0273ead
+1	24	1662340400510283526	generated/data/resources.c	a28d0a1a9b55d58e
+25	3186	1662340403658301227	src/CMakeFiles/jsontree.dir/application.cpp.o	d547ef8e26b30fe4
+1	24	1662340400510283526	/home/tspradli/CLionProjects/jsontree/cmake-build-minsizerel/generated/data/resources.c	a28d0a1a9b55d58e
+25	3001	1662340403473300187	src/CMakeFiles/jsontree.dir/main.cpp.o	9462f2dd29d82f44
+1	67	1662340400511283532	/home/tspradli/CLionProjects/jsontree/cmake-build-minsizerel/generated/data/gschemas.compiled	264e3bad8e727f40
+138	849	1662340401327288120	src/CMakeFiles/jsontree.dir/utils.cpp.o	217a630eb143f640
+1	67	1662340400511283532	generated/data/gschemas.compiled	264e3bad8e727f40
+24	427	1662340400907285759	src/CMakeFiles/jsontree.dir/__/generated/data/resources.c.o	d95e55503949e3ae
+26	2887	1662340403359299546	src/CMakeFiles/jsontree.dir/preferences.cpp.o	697bfc91058d7f45
+5	1917	1662354297043126808	src/CMakeFiles/jsontree.dir/treestore.cpp.o	e0f716c91e513578
+4	2562	1662354297691130660	src/CMakeFiles/jsontree.dir/main.cpp.o	9462f2dd29d82f44
+4	2640	1662354297769131124	src/CMakeFiles/jsontree.dir/application.cpp.o	d547ef8e26b30fe4
+5	2733	1662354297862131677	src/CMakeFiles/jsontree.dir/treeview.cpp.o	b3659bc1e0273ead
+2733	3050	1662354298186133603	src/jsontree	cce2ee31d98ee2aa

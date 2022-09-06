@@ -4,7 +4,7 @@ add_executable(
     ${PROJECT_NAME}
     ${DATA_DIR}/resources.c
     ${SRCFILES}
-    treestore.cpp treestore.h)
+)
 
 target_link_libraries(
     ${PROJECT_NAME}
