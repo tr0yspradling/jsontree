@@ -11,7 +11,7 @@ Glib::RefPtr<Application> Application::create() {
     return Glib::RefPtr<Application>(new Application());
 }
 
-MainWindow *Application::createWindow() {
+MainWindow* Application::createWindow() {
     auto window = MainWindow::create();
     add_window(*window);
     window->signal_hide().connect(sigc::bind(sigc::mem_fun(*this, &Application::on_hide_window), window));
@@ -31,7 +31,6 @@ void Application::on_activate() {
 
 void Application::on_startup() {
     Gtk::Application::on_startup();
-
     add_action("open_file", sigc::mem_fun(*this, &Application::on_action_open_file));
     add_action("preferences", sigc::mem_fun(*this, &Application::on_action_preferences));
     add_action("quit", sigc::mem_fun(*this, &Application::on_action_quit));
@@ -62,13 +61,13 @@ void Application::on_hide_window(Gtk::Window *window) {
 
 void Application::on_action_open_file() {
     Gtk::FileChooserDialog dialog("Please choose a file",
-                                  Gtk::FILE_CHOOSER_ACTION_OPEN);
+                                  Gtk::FileChooser::Action::OPEN);
 
     dialog.set_transient_for(*this->get_active_window());
 
     // Add response buttons to the dialog:
-    dialog.add_button("_Cancel", Gtk::RESPONSE_CANCEL);
-    dialog.add_button("_Open", Gtk::RESPONSE_OK);
+    dialog.add_button("_Cancel", Gtk::ResponseType_Wrapper::CANCEL);
+    dialog.add_button("_Open", Gtk::ResponseType_Wrapper::OK);
 
     // Add filters, so that only certain file types can be selected:
     auto filter_json = Gtk::FileFilter::create();
@@ -88,13 +87,13 @@ void Application::on_action_open_file() {
 
     // Handle the response:
     switch (result) {
-        case (Gtk::RESPONSE_OK): {
+        case (Gtk::ResponseType_Wrapper::OK): {
             // Notice that this is a std::string, not a Glib::ustring.
             filename = dialog.get_filename();
             std::cout << "" << std::endl;
             break;
         }
-        case (Gtk::RESPONSE_CANCEL): {
+        case (Gtk::ResponseType_Wrapper::CANCEL): {
             break;
         }
         default: {

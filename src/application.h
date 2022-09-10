@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <gtkmm/application.h>
+#include <gtkmm/icontheme.h>
 #include <gtkmm/filechooserdialog.h>
 #include "preferences.h"
 #include "treeview.h"
@@ -16,7 +17,7 @@ public:
 private:
     Application();
 
-    MainWindow *createWindow();
+    MainWindow* createWindow();
     
     void on_activate() override;
 

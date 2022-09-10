@@ -7,7 +7,7 @@ MainWindow::MainWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, const Gl
           headerBar(nullptr),
           treeView(nullptr),
           treeStore(nullptr) {
-    set_icon(Gdk::Pixbuf::create_from_resource(projectdefinitions::getApplicationPrefix() + "icons/64x64/icon.png"));
+    set_icon_name(Gdk::Pixbuf::create_from_resource(projectdefinitions::getApplicationPrefix() + "icons/64x64/icon.png"));
     setHeaderBar();
 
     // if value is object or array, create parent/child nodes
@@ -21,10 +21,10 @@ MainWindow::~MainWindow() {
     delete jsonDocument;
 }
 
-MainWindow *MainWindow::create() {
+MainWindow* MainWindow::create() {
     auto builder = Gtk::Builder::create_from_resource(projectdefinitions::getApplicationPrefix() + "ui/main.glade");
 
-    MainWindow *window = nullptr;
+    MainWindow* window = nullptr;
     builder->get_widget_derived("window", window);
     if (!window) {
         throw std::runtime_error("No \"window\" object in main.glade");

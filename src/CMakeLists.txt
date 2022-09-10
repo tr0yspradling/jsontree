@@ -15,8 +15,6 @@ target_link_libraries(
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCES_DIR})
 
-# set(RAW_DATA_DIR ${})
-
 compile_resources(
     ${DATA_DIR}/resources.c
     ${GLADEFILES}

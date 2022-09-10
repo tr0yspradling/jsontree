@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.2)
 
 project(jsontree VERSION 1.0)
 
+set(CMAKE_CXX_STANDARD 17)
 set(APPLICATION_ID "tr0y.me.jsontree")
 string(REPLACE "." "/" APPLICATION_PREFIX "/${APPLICATION_ID}/")
 
