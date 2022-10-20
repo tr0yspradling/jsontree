@@ -31,6 +31,8 @@ private:
 
     void on_action_quit();
 
+    void on_file_dialog_response(int, Gtk::FileChooserDialog*);
+
 };
 
 #endif  // APPLICATION_H

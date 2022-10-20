@@ -45,11 +45,12 @@ void Application::on_startup() {
     }
 
     auto object = builder->get_object("appmenu");
-    auto app_menu = Glib::RefPtr<Gio::MenuModel>::cast_dynamic(object);
+    auto app_menu = std::dynamic_pointer_cast<Gio::Menu>(object);
     if (app_menu) {
-        set_app_menu(app_menu);
-        auto n_app_menu = get_app_menu();
-        std::cout << n_app_menu->get_n_items() << std::endl;
+        set_menubar(app_menu);
+        // auto n_app_menu = get_app_menu();
+        // TODO: Get number of items in the app menu.
+        // std::cout << n_app_menu->get_n_items() << std::endl;
     } else {
         std::cerr << "Application::on_startup(): No \"appmenu\" object in menu.glade" << std::endl;
     }
@@ -60,48 +61,54 @@ void Application::on_hide_window(Gtk::Window *window) {
 }
 
 void Application::on_action_open_file() {
-    Gtk::FileChooserDialog dialog("Please choose a file",
-                                  Gtk::FileChooser::Action::OPEN);
+    auto dialog = new Gtk::FileChooserDialog("Please choose a file",
+                                             Gtk::FileChooser::Action::OPEN);
 
-    dialog.set_transient_for(*this->get_active_window());
+    dialog->set_transient_for(*this->get_active_window());
 
     // Add response buttons to the dialog:
-    dialog.add_button("_Cancel", Gtk::ResponseType_Wrapper::CANCEL);
-    dialog.add_button("_Open", Gtk::ResponseType_Wrapper::OK);
+    dialog->add_button("_Cancel", Gtk::ResponseType_Wrapper::CANCEL);
+    dialog->add_button("_Open", Gtk::ResponseType_Wrapper::OK);
 
     // Add filters, so that only certain file types can be selected:
     auto filter_json = Gtk::FileFilter::create();
     filter_json->set_name("JSON files");
     filter_json->add_mime_type("application/json");
-    dialog.add_filter(filter_json);
+    dialog->add_filter(filter_json);
 
     auto filter_any = Gtk::FileFilter::create();
     filter_any->set_name("Any files");
     filter_any->add_pattern("*");
-    dialog.add_filter(filter_any);
+    dialog->add_filter(filter_any);
 
-    // Show the dialog and wait for a user response:
-    int result = dialog.run();
+    dialog->show();
+}
+void Application::on_file_dialog_response(int response_id, Gtk::FileChooserDialog* dialog)
+{
+    //Handle the response:
+    switch (response_id)
+    {
+        case Gtk::ResponseType::OK:
+        {
+            std::cout << "Open clicked." << std::endl;
 
-    std::string filename;
-
-    // Handle the response:
-    switch (result) {
-        case (Gtk::ResponseType_Wrapper::OK): {
-            // Notice that this is a std::string, not a Glib::ustring.
-            filename = dialog.get_filename();
-            std::cout << "" << std::endl;
+            //Notice that this is a std::string, not a Glib::ustring.
+            auto filename = dialog->get_file()->get_path();
+            std::cout << "File selected: " <<  filename << std::endl;
             break;
         }
-        case (Gtk::ResponseType_Wrapper::CANCEL): {
+        case Gtk::ResponseType::CANCEL:
+        {
+            std::cout << "Cancel clicked." << std::endl;
             break;
         }
-        default: {
+        default:
+        {
+            std::cout << "Unexpected button clicked." << std::endl;
             break;
         }
     }
-    // auto window = (MainWindow*) get_active_window();
-    // window->serialize_json_by_filename(filename);
+    delete dialog;
 }
 
 void Application::on_action_preferences() {

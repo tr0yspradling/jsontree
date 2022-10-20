@@ -13,8 +13,7 @@ Preferences *Preferences::create(Gtk::Window &parent) {
     auto builder = Gtk::Builder::create_from_resource(
             projectdefinitions::getApplicationPrefix() + "ui/preferences.glade");
 
-    Preferences *prefsDialog = nullptr;
-    builder->get_widget_derived("prefsDialog", prefsDialog);
+    auto *prefsDialog = Gtk::Builder::get_widget_derived<Preferences>(builder, "prefsDialog");
     if (!prefsDialog) {
         throw std::runtime_error("No \"prefsDialog\" object in preferences.glade");
     }

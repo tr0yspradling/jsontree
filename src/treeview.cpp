@@ -7,7 +7,7 @@ MainWindow::MainWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, const Gl
           headerBar(nullptr),
           treeView(nullptr),
           treeStore(nullptr) {
-    set_icon_name(Gdk::Pixbuf::create_from_resource(projectdefinitions::getApplicationPrefix() + "icons/64x64/icon.png"));
+    set_icon_name(projectdefinitions::getApplicationPrefix() + "icons/64x64/icon.png");
     setHeaderBar();
 
     // if value is object or array, create parent/child nodes
@@ -24,8 +24,7 @@ MainWindow::~MainWindow() {
 MainWindow* MainWindow::create() {
     auto builder = Gtk::Builder::create_from_resource(projectdefinitions::getApplicationPrefix() + "ui/main.glade");
 
-    MainWindow* window = nullptr;
-    builder->get_widget_derived("window", window);
+    auto window = Gtk::Builder::get_widget_derived<MainWindow>(builder, "window");
     if (!window) {
         throw std::runtime_error("No \"window\" object in main.glade");
     }
@@ -35,11 +34,10 @@ MainWindow* MainWindow::create() {
 void MainWindow::setHeaderBar() {
     auto builder =
             Gtk::Builder::create_from_resource(projectdefinitions::getApplicationPrefix() + "ui/headerbar.glade");
-    builder->get_widget("headerBar", headerBar);
+    headerBar = builder->get_widget<Gtk::HeaderBar>("headerBar");
     if (!headerBar) {
         throw std::runtime_error("No \"headerBar\" object in headerbar.glade");
     } else {
-        headerBar->set_title(projectdefinitions::getProjectName());
         set_titlebar(*headerBar);
     }
 }
