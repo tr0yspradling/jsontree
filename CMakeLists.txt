@@ -1,14 +1,15 @@
 cmake_minimum_required(VERSION 3.2)
+set(CMAKE_CXX_STANDARD 17)
 
 project(jsontree VERSION 1.0)
 
-set(CMAKE_CXX_STANDARD 17)
 set(APPLICATION_ID "tr0y.me.jsontree")
 string(REPLACE "." "/" APPLICATION_PREFIX "/${APPLICATION_ID}/")
 
 list(INSERT CMAKE_MODULE_PATH 0 ${PROJECT_SOURCE_DIR}/cmake)
 include(GlibUtils)
 include(InstallScript)
+include(FindGTKMM)
 
 set(GENERATED_FILES_DIR ${PROJECT_BINARY_DIR}/generated)
 set(SOURCES_DIR ${GENERATED_FILES_DIR}/src)
@@ -16,8 +17,6 @@ set(DATA_DIR ${GENERATED_FILES_DIR}/data)
 set(INSTALL_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
 
 configure_file(cmake/projectdefinitions.h.in ${SOURCES_DIR}/projectdefinitions.h)
-
-find_package(GTKMM)
 
 add_subdirectory(src)
 add_subdirectory(data)
