@@ -10,6 +10,12 @@
     </section>
     <section>
       <item>
+        <attribute name="label" translatable="yes">_Close File</attribute>
+        <attribute name="action">app.close_file</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
         <attribute name="label" translatable="yes">_Preferences</attribute>
         <attribute name="action">app.preferences</attribute>
       </item>
