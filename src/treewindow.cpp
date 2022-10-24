@@ -85,14 +85,43 @@ void TreeWindow::load_tree_view(char* &_contents) {
     //All the items to be reordered with drag-and-drop:
     // tree_view->set_reorderable();
 
-    for (auto it = json_document->MemberBegin(); it != json_document->MemberEnd(); ++it) {
-        parse_object("", *(tree_store->append()), it);
+    if (json_document->IsObject()) {
+        for (auto it = json_document->MemberBegin(); it != json_document->MemberEnd(); ++it) {
+            parse_object("", *(tree_store->append()), it);
+        }
+    } else if (json_document->IsArray()) {
+        for (auto it = json_document->Begin(); it != json_document->End(); ++it) {
+            parse_array("", *(tree_store->append()), it);
+        }
+    } else {
+
     }
 
     //Add the TreeView's view columns:
     tree_view->append_column("key", tree_columns.key);
     tree_view->append_column("value", tree_columns.value);
     std::cout << "DONE" << std::endl;
+}
+void TreeWindow::set_row_value(Gtk::TreeRow row, rapidjson::Value &object) {
+    Glib::ustring value = nullptr;
+    if (object.IsString()) {
+        try {
+            value = Glib::ustring(object.GetString());
+        } catch (std::runtime_error &ex) {
+            std::cout << ex.what() << std::endl;
+        }
+    } else if (object.IsInt()) {
+        value = Glib::ustring(std::to_string(object.GetInt()));
+    } else if (object.IsDouble()) {
+        value = Glib::ustring(std::to_string(object.GetDouble()));
+    } else if (object.IsFloat()) {
+        value = Glib::ustring(std::to_string(object.GetFloat()));
+    } else if (object.IsBool()) {
+        value = object.GetBool() ? "true" : "false";
+    } else if (object.IsNull()) {
+        value = Glib::ustring("null");
+    }
+    row[tree_columns.value] = value;
 }
 
 void TreeWindow::parse_object(
@@ -120,32 +149,25 @@ void TreeWindow::parse_object(
             parse_array("", *(tree_store->append(row.children())), it);
         }
         value = "[]";
-    } else if (object->value.IsString()) {
-        try {
-            value = Glib::ustring(object->value.GetString());
-        } catch (std::runtime_error &ex) {
-            std::cout << ex.what() << std::endl;
-        }
-    } else if (object->value.IsInt()) {
-        value = Glib::ustring(std::to_string(object->value.GetInt()));
-    } else if (object->value.IsDouble()) {
-        value = Glib::ustring(std::to_string(object->value.GetDouble()));
-    } else if (object->value.IsFloat()) {
-        value = Glib::ustring(std::to_string(object->value.GetFloat()));
-    } else if (object->value.IsBool()) {
-        value = object->value.GetBool() ? "true" : "false";
-    } else if (object->value.IsNull()) {
-        value = Glib::ustring("null");
     }
-    row[tree_columns.value] = value;
+    set_row_value(row, (rapidjson::Value &)object->value);
 }
 
 void TreeWindow::parse_array(
         std::string scope,
         Gtk::TreeRow row,
         rapidjson::Value::ConstValueIterator object) {
-    Glib::ustring value = "[]";
+    Glib::ustring value = "?";
+
+    //Fill the TreeView's model
+    if (scope.empty()) {
+        scope = "|";
+    } else {
+        scope = scope + "." + object->GetString();
+    }
+
     row[tree_columns.key] = Glib::ustring(scope);
+
     if (object->IsObject()) {
         for (auto it = object->MemberBegin(); it != object->MemberEnd(); ++it) {
             parse_object(scope, *(tree_store->append(row.children())), it);
@@ -156,22 +178,6 @@ void TreeWindow::parse_array(
             parse_array("", *(tree_store->append(row.children())), it);
         }
         value = "[]";
-    } else if (object->IsString()) {
-        try {
-            value = Glib::ustring(object->GetString());
-        } catch (std::runtime_error &ex) {
-            std::cout << ex.what() << std::endl;
-        }
-    } else if (object->IsInt()) {
-        value = Glib::ustring(std::to_string(object->GetInt()));
-    } else if (object->IsDouble()) {
-        value = Glib::ustring(std::to_string(object->GetDouble()));
-    } else if (object->IsFloat()) {
-        value = Glib::ustring(std::to_string(object->GetFloat()));
-    } else if (object->IsBool()) {
-        value = object->GetBool() ? "true" : "false";
-    } else if (object->IsNull()) {
-        value = Glib::ustring("null");
     }
-    row[tree_columns.value] = value;
+    set_row_value(row, (rapidjson::Value &)object);
 }

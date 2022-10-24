@@ -19,7 +19,6 @@
 #include <gtkmm/stack.h>
 #include <gtkmm/menubutton.h>
 #include "document.h"
-#include "utils.h"
 #include "projectdefinitions.h"
 
 class TreeWindow : public Gtk::ApplicationWindow {
@@ -43,6 +42,7 @@ public:
                       rapidjson::Value::ConstValueIterator object);
     Glib::ustring json_file_name;
 protected:
+    void set_row_value(Gtk::TreeRow row, rapidjson::Value& object);
     std::vector<const char*> json_type_names;
     rapidjson::Document* json_document {nullptr};
     char* contents {nullptr};
