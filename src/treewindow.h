@@ -52,6 +52,8 @@ public:
     Glib::ustring json_file_name;
 protected:
     void set_row_value(Gtk::TreeRow row, rapidjson::Value &object) const;
+    void on_row_selected(const std::shared_ptr<Gtk::TreeModel> &model,
+                         const Gtk::TreeModel::Path &path, bool);
 
     std::vector<const char *> json_type_names {
             "Null", "False", "True", "Object", "Array", "String", "Number"

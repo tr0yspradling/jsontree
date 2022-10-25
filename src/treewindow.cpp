@@ -63,6 +63,11 @@ void TreeWindow::open_file_view(const Glib::RefPtr<Gio::File> &_file) {
     tree_view->set_model(tree_store);
     //All the items to be reordered with drag-and-drop:
     tree_view->set_reorderable(true);
+    auto tree_selection = tree_view->get_selection();
+    tree_selection->signal_changed().connect(
+        sigc::bind(sigc::mem_fun(*this, &TreeWindow::on_row_selected)
+    );
+
     try {
         file->load_contents(contents, length);
     } catch (const Glib::Error &ex) {
@@ -152,4 +157,9 @@ void TreeWindow::set_row_value(Gtk::TreeRow row, rapidjson::Value &object) const
     } catch (std::runtime_error &ex) {
         std::cout << "TreeWindow::set_row_value(\"" << str_value << "\"):\n  " << ex.what() << std::endl;
     }
+}
+
+void TreeWindow::on_row_selected(const std::shared_ptr<Gtk::TreeModel> &model, const Gtk::TreeModel::Path &path, bool) {
+    const auto iter = model->get_iter(path);
+    return iter->children().empty();
 }
