@@ -3,6 +3,8 @@ A fast, lightweight, cross-platform utility for viewing & navigating large JSON 
 
 Generated using [gtkmm-project](https://github.com/tr0yspradling/gtkmm-project.git).
 
+![jsontree screenshot](data/screenshots/screenshot.png)
+
 # Dependencies
 - [RapidJSON](https://rapidjson.org/)  
 - [gtkmm](https://www.gtkmm.org/)  
