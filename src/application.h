@@ -18,8 +18,8 @@ public:
 private:
     Application();
 
-    TreeWindow* create_window();
-    
+    TreeWindow *create_window();
+
     void on_activate() override;
 
     void on_startup() override;
@@ -34,7 +34,7 @@ private:
 
     void on_open(const type_vec_files &files, const Glib::ustring &) override;
 
-    void on_file_dialog_response(int, Gtk::FileChooserDialog*);
+    void on_file_dialog_response(int, Gtk::FileChooserDialog *);
 };
 
 #endif  // APPLICATION_H

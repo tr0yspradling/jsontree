@@ -3,9 +3,8 @@
 #include "projectdefinitions.h"
 
 Application::Application()
-: Gtk::Application(projectdefinitions::getApplicationID() + ".application",
-                   Gio::Application::Flags::HANDLES_OPEN)
-{
+    : Gtk::Application(projectdefinitions::getApplicationID() + ".application",
+                       Gio::Application::Flags::HANDLES_OPEN) {
     Glib::set_application_name(Glib::ustring("JSONTree"));
 }
 
@@ -15,7 +14,7 @@ Glib::RefPtr<Application> Application::create() {
     return Glib::make_refptr_for_instance<Application>(new Application());
 }
 
-TreeWindow* Application::create_window() {
+TreeWindow *Application::create_window() {
     auto window = TreeWindow::create();
     add_window(*window);
     window->signal_hide().connect(
@@ -36,14 +35,13 @@ void Application::on_activate() {
     }
 }
 
-void Application::on_open(const Gio::Application::type_vec_files& files, const Glib::ustring& hint)
-{
+void Application::on_open(const Gio::Application::type_vec_files &files, const Glib::ustring &hint) {
     // The application has been asked to open some files,
     // so let's open a new view for each one.
-    TreeWindow* tree_window = nullptr;
+    TreeWindow *tree_window = nullptr;
     auto windows = get_windows();
     if (!windows.empty())
-        tree_window = dynamic_cast<TreeWindow*>(windows[0]);
+        tree_window = dynamic_cast<TreeWindow *>(windows[0]);
 
     try {
         if (!tree_window)
@@ -53,9 +51,9 @@ void Application::on_open(const Gio::Application::type_vec_files& files, const G
             tree_window->open_file_view(file);
 
         tree_window->present();
-    } catch (const Glib::Error& ex) {
+    } catch (const Glib::Error &ex) {
         std::cerr << "TreeWindow::on_open: " << ex.what() << std::endl;
-    } catch (const std::exception& ex) {
+    } catch (const std::exception &ex) {
         std::cerr << "TreeWindow::on_open: " << ex.what() << std::endl;
     }
 }
@@ -117,13 +115,10 @@ void Application::on_action_open_file() {
     dialog->show();
 }
 
-void Application::on_file_dialog_response(int response_id, Gtk::FileChooserDialog* dialog)
-{
+void Application::on_file_dialog_response(int response_id, Gtk::FileChooserDialog *dialog) {
     //Handle the response:
-    switch (response_id)
-    {
-        case Gtk::ResponseType::OK:
-        {
+    switch (response_id) {
+        case Gtk::ResponseType::OK: {
             std::cout << "Open clicked." << std::endl;
             //Notice that this is a std::string, not a Glib::ustring.
             auto filename = dialog->get_file()->get_path();
@@ -132,13 +127,11 @@ void Application::on_file_dialog_response(int response_id, Gtk::FileChooserDialo
             on_open(std::vector<std::shared_ptr<Gio::File>>{file_for_path}, filename);
             break;
         }
-        case Gtk::ResponseType::CANCEL:
-        {
+        case Gtk::ResponseType::CANCEL: {
             std::cout << "Cancel clicked." << std::endl;
             break;
         }
-        default:
-        {
+        default: {
             std::cout << "Unexpected button clicked." << std::endl;
             break;
         }
@@ -157,9 +150,10 @@ void Application::on_action_preferences() {
         std::cerr << "Application::on_action_preferences(): " << ex.what() << std::endl;
     }
 }
+
 void Application::on_action_quit() {
     auto windows = get_windows();
-    for (auto window : windows) {
+    for (auto window: windows) {
         window->hide();
     }
     quit();

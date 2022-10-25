@@ -3,11 +3,9 @@
 #include <memory>
 #include "treewindow.h"
 
-TreeWindow::TreeWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder)
-        : Gtk::ApplicationWindow(cobject),
-          builder(builder) {
+TreeWindow::TreeWindow(Gtk::ApplicationWindow::BaseObjectType *cobject,
+    const Glib::RefPtr<Gtk::Builder> &builder) : Gtk::ApplicationWindow(cobject), builder(builder) {
     set_icon_name(projectdefinitions::getApplicationPrefix() + "icons/64x64/icon.png");
-
 
     view_stack = builder->get_widget<Gtk::Stack>("stack");
     if (!view_stack)
@@ -16,6 +14,7 @@ TreeWindow::TreeWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, const Gl
     gears = builder->get_widget<Gtk::MenuButton>("gears");
     if (!gears)
         throw std::runtime_error("No 'gears' object in main.glade.");
+
     auto menu_builder = Gtk::Builder::create_from_resource(
         projectdefinitions::getApplicationPrefix() + "ui/menu.glade"
     );
@@ -24,19 +23,14 @@ TreeWindow::TreeWindow(Gtk::ApplicationWindow::BaseObjectType *cobject, const Gl
         throw std::runtime_error("No \"menu\" object in menu.ui");
 
     gears->set_menu_model(menu);
-    // if value is object or array, create parent/child nodes
-    // otherwise create text node for key/value
-    json_type_names = {
-            "Null", "False", "True", "Object", "Array", "String", "Number"
-    };
 }
 
-TreeWindow::~TreeWindow(){
+TreeWindow::~TreeWindow() {
     g_free(contents);
     delete json_document;
 }
 
-TreeWindow* TreeWindow::create() {
+TreeWindow *TreeWindow::create() {
     auto builder = Gtk::Builder::create_from_resource(
         projectdefinitions::getApplicationPrefix() + "ui/main.glade"
     );
@@ -47,7 +41,7 @@ TreeWindow* TreeWindow::create() {
     return window;
 }
 
-void TreeWindow::open_file_view(const Glib::RefPtr<Gio::File>& _file) {
+void TreeWindow::open_file_view(const Glib::RefPtr<Gio::File> &_file) {
     file = _file;
     const Glib::ustring basename = file->get_basename();
     std::cout << "file->get_basename(): " << file->get_basename() << std::endl;
@@ -56,7 +50,10 @@ void TreeWindow::open_file_view(const Glib::RefPtr<Gio::File>& _file) {
     // auto scrolled = Gtk::make_managed<Gtk::ScrolledWindow>();
     scrolled_window = std::make_shared<Gtk::ScrolledWindow>();
     tree_view = std::make_shared<Gtk::TreeView>();
-    scrolled_window->set_policy(Gtk::PolicyType::AUTOMATIC, Gtk::PolicyType::AUTOMATIC);
+    scrolled_window->set_policy(
+        Gtk::PolicyType::AUTOMATIC,
+        Gtk::PolicyType::AUTOMATIC
+    );
     scrolled_window->set_expand(true);
     scrolled_window->set_child(*tree_view);
     view_stack->add(*scrolled_window, basename, basename);
@@ -68,19 +65,20 @@ void TreeWindow::open_file_view(const Glib::RefPtr<Gio::File>& _file) {
     tree_view->set_reorderable(true);
     try {
         file->load_contents(contents, length);
-    } catch (const Glib::Error& ex) {
+    } catch (const Glib::Error &ex) {
         std::cout << "TreeWindow::open_file_view(\"" << file->get_parse_name()
                   << "\"):\n  " << ex.what() << std::endl;
     }
 
-    try{
+    try {
         load_tree_view(contents);
-    } catch (const Glib::Error& ex) {
-        std::cout << "TreeWindow::open_file_view(\"" << file->get_parse_name() << "\"):\n  " << ex.what() << std::endl;
+    } catch (const Glib::Error &ex) {
+        std::cout << "TreeWindow::open_file_view(\"" << file->get_parse_name()
+                  << "\"):\n  " << ex.what() << std::endl;
     }
 }
 
-void TreeWindow::load_tree_view(char* &_contents) {
+void TreeWindow::load_tree_view(char *&_contents) {
     json_document = new rapidjson::Document();
     json_document->Parse(_contents);
     if (json_document->IsObject()) {
@@ -105,7 +103,7 @@ void TreeWindow::load_tree_view(char* &_contents) {
 void TreeWindow::parse_value(
     std::string scope,
     Gtk::TreeRow row,
-    rapidjson::Value& object) {
+    rapidjson::Value &object) {
     if (object.IsObject()) {
         row[tree_columns.value] = "{}";
         for (auto it = object.MemberBegin(); it != object.MemberEnd(); ++it) {
@@ -121,13 +119,13 @@ void TreeWindow::parse_value(
             std::size_t index = it - object.Begin();
             std::string scope_repr = scope + "[" + std::to_string(index) + "]";
             parse_value(
-            scope_repr, *(tree_store->append(row.children())), *it
+                scope_repr, *(tree_store->append(row.children())), *it
             );
         }
     } else {
         try {
             set_row_value(row, object);
-        } catch (std::runtime_error& ex) {
+        } catch (std::runtime_error &ex) {
             std::cout << "TreeWindow::parse_object(\"" << &object << "\"):\n  " << ex.what() << std::endl;
         }
     }

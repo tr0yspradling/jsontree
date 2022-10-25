@@ -21,6 +21,17 @@
 #include "document.h"
 #include "projectdefinitions.h"
 
+class TreeModelColumns : public Gtk::TreeModel::ColumnRecord {
+public:
+    TreeModelColumns() {
+        add(key);
+        add(value);
+    }
+
+    Gtk::TreeModelColumn<Glib::ustring> key;
+    Gtk::TreeModelColumn<Glib::ustring> value;
+};
+
 class TreeWindow : public Gtk::ApplicationWindow {
 public:
     TreeWindow(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder);
@@ -32,37 +43,34 @@ public:
     void open_file_view(const Glib::RefPtr<Gio::File> &);
 
     // Loads the `tree_view` from a char* containing JSON
-    void load_tree_view(char* &);
+    void load_tree_view(char *&);
 
     void parse_value(std::string scope,
-                      Gtk::TreeRow row,
-                      rapidjson::Value& object);
+                     Gtk::TreeRow row,
+                     rapidjson::Value &object);
 
     Glib::ustring json_file_name;
 protected:
-    void set_row_value(Gtk::TreeRow row, rapidjson::Value& object) const;
-    std::vector<const char*> json_type_names;
-    rapidjson::Document* json_document {nullptr};
-    char* contents {nullptr};
-    gsize length {0};
-    std::shared_ptr<Gio::File> file;
+    void set_row_value(Gtk::TreeRow row, rapidjson::Value &object) const;
+
+    std::vector<const char *> json_type_names {
+            "Null", "False", "True", "Object", "Array", "String", "Number"
+    };
+
+    rapidjson::Document *json_document{nullptr};
+    char *contents{nullptr};
+    gsize length{0};
+    std::shared_ptr<Gio::File> file {nullptr};
 
     std::shared_ptr<Gtk::Builder> builder;
-    std::shared_ptr<Gio::Settings> settings {nullptr};
-    Gtk::MenuButton* gears {nullptr};
-    // Gtk::HeaderBar* header_bar {nullptr};
-    Gtk::Stack* view_stack {nullptr};
-    std::shared_ptr<Gtk::ScrolledWindow> scrolled_window {nullptr};
-    std::shared_ptr<Gtk::TreeView> tree_view {nullptr};
-    std::shared_ptr<Gtk::TreeStore> tree_store {nullptr};
-    std::shared_ptr<Gtk::TreeModelColumnRecord> tree_column_record {nullptr};
-    class TreeModelColumns : public Gtk::TreeModel::ColumnRecord
-    {
-    public:
-        TreeModelColumns() { add(key); add(value); }
-        Gtk::TreeModelColumn<Glib::ustring> key;
-        Gtk::TreeModelColumn<Glib::ustring> value;
-    };
+    std::shared_ptr<Gio::Settings> settings{nullptr};
+    Gtk::MenuButton *gears{nullptr};
+    Gtk::Stack *view_stack{nullptr};
+    std::shared_ptr<Gtk::ScrolledWindow> scrolled_window{nullptr};
+    std::shared_ptr<Gtk::TreeView> tree_view{nullptr};
+    std::shared_ptr<Gtk::TreeStore> tree_store{nullptr};
+    std::shared_ptr<Gtk::TreeModelColumnRecord> tree_column_record{nullptr};
+
     TreeModelColumns tree_columns;
 };
 
