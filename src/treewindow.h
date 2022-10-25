@@ -34,15 +34,13 @@ public:
     // Loads the `tree_view` from a char* containing JSON
     void load_tree_view(char* &);
 
-    void parse_object(std::string scope,
+    void parse_value(std::string scope,
                       Gtk::TreeRow row,
-                      rapidjson::Value::ConstMemberIterator object);
-    void parse_array(std::string scope,
-                      Gtk::TreeRow row,
-                      rapidjson::Value::ConstValueIterator object);
+                      rapidjson::Value& object);
+
     Glib::ustring json_file_name;
 protected:
-    void set_row_value(Gtk::TreeRow row, rapidjson::Value& object);
+    void set_row_value(Gtk::TreeRow row, rapidjson::Value& object) const;
     std::vector<const char*> json_type_names;
     rapidjson::Document* json_document {nullptr};
     char* contents {nullptr};
@@ -66,7 +64,6 @@ protected:
         Gtk::TreeModelColumn<Glib::ustring> value;
     };
     TreeModelColumns tree_columns;
-
 };
 
 #endif  // WINDOW_H

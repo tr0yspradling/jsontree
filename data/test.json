@@ -5,16 +5,18 @@
   "n": null,
   "i": 123,
   "pi": 3.1416,
-  "a": [1,2,3],
-  "abc": {"a1": false},
+  "a": [1, 2, 3],
+  "abc": {
+    "a1": false
+  },
   "foo": {
     "hello": "world",
-    "t": true ,
+    "t": true,
     "f": false,
     "n": null,
     "i": 123,
     "pi": 3.1416,
-    "a": [1,2,3],
+    "a": [1, 2, 3],
     "abc": {
       "a1": false,
       "hello": "world",
@@ -23,17 +25,21 @@
       "n": null,
       "i": 123,
       "pi": 3.1416,
-      "a": [1,2,3],
-      "abc": {"a1": false},
+      "a": [1, 2, 3],
+      "abc": {
+        "a1": false
+      },
       "foo": {
         "hello": "world",
-        "t": true ,
+        "t": true,
         "f": false,
         "n": null,
         "i": 123,
         "pi": 3.1416,
-        "a": [1,2,3],
-        "abc": {"a1": false}
+        "a": [1, 2, 3],
+        "abc": {
+          "a1": false
+        }
       }
     }
   }
