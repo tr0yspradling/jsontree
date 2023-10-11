@@ -2,8 +2,9 @@
 #define WINDOW_H
 
 #include <iostream>
-#include <vector>
+#include <memory>
 #include <string>
+#include <vector>
 #include <giomm/settings.h>
 #include <gtkmm/applicationwindow.h>
 #include <gtkmm/builder.h>
@@ -45,24 +46,26 @@ public:
     // Loads the `tree_view` from a char* containing JSON
     void load_tree_view(char *&);
 
-    void parse_value(std::string scope,
-                     Gtk::TreeRow row,
-                     rapidjson::Value &object);
+    void parse_value(
+        std::string scope,
+        Gtk::TreeRow row,
+        rapidjson::Value &object
+    );
 
     Glib::ustring json_file_name;
+    void on_row_selected(
+        const std::shared_ptr<Gtk::TreeModel> &model,
+        const Gtk::TreeModel::Path &path, bool
+    );
 protected:
     void set_row_value(Gtk::TreeRow row, rapidjson::Value &object) const;
-    void on_row_selected(const std::shared_ptr<Gtk::TreeModel> &model,
-                         const Gtk::TreeModel::Path &path, bool);
-
-    std::vector<const char *> json_type_names {
-            "Null", "False", "True", "Object", "Array", "String", "Number"
+    std::vector<const char *> json_type_names{
+        "Null", "False", "True", "Object", "Array", "String", "Number"
     };
-
     rapidjson::Document *json_document{nullptr};
     char *contents{nullptr};
     gsize length{0};
-    std::shared_ptr<Gio::File> file {nullptr};
+    std::shared_ptr<Gio::File> file{nullptr};
 
     std::shared_ptr<Gtk::Builder> builder;
     std::shared_ptr<Gio::Settings> settings{nullptr};
