@@ -63,10 +63,11 @@ void TreeWindow::open_file_view(const Glib::RefPtr<Gio::File> &_file) {
     tree_view->set_model(tree_store);
     //All the items to be reordered with drag-and-drop:
     tree_view->set_reorderable(true);
+
     auto tree_selection = tree_view->get_selection();
-//    tree_selection->signal_changed().connect(
-//        sigc::bind(sigc::mem_fun(*this, &TreeWindow::on_row_selected))
-//    );
+    tree_selection->signal_changed().connect(
+        sigc::bind(sigc::mem_fun(*this, &TreeWindow::on_row_selected))
+    );
 
     try {
         file->load_contents(contents, length);
@@ -76,7 +77,7 @@ void TreeWindow::open_file_view(const Glib::RefPtr<Gio::File> &_file) {
     }
 
     try {
-        load_tree_view(contents);
+        load_tree_view();
     } catch (const Glib::Error &ex) {
         std::cout << "TreeWindow::open_file_view(\"" << file->get_parse_name()
                   << "\"):\n  " << ex.what() << std::endl;
@@ -84,61 +85,32 @@ void TreeWindow::open_file_view(const Glib::RefPtr<Gio::File> &_file) {
 }
 
 
-void TreeWindow::load_tree_view(char *&_contents) {
+void TreeWindow::load_tree_view() {
     json_document = new rapidjson::Document();
-    json_document->Parse(_contents);
-
-    std::stack<std::tuple<std::string, Gtk::TreeRow, rapidjson::Value&>> stack;
+    json_document->Parse(contents);
     if (json_document->IsObject()) {
         for (auto it = json_document->MemberBegin(); it != json_document->MemberEnd(); ++it) {
-            stack.push(std::make_tuple(it->name.GetString(), *(tree_store->append()), it->value));
+            parse_value(it->name.GetString(), *(tree_store->append()), it->value);
         }
     } else if (json_document->IsArray()) {
         for (auto it = json_document->Begin(); it != json_document->End(); ++it) {
             std::size_t index = it - json_document->Begin();
             std::string scope_repr = "[" + std::to_string(index) + "]";
-            stack.push(std::make_tuple(scope_repr, *(tree_store->append()), *it));
+            parse_value(scope_repr, *(tree_store->append()), *it);
         }
     } else {
         set_row_value(*(tree_store->append()), *json_document);
     }
-
-    while (!stack.empty()) {
-        auto [scope, row, object] = stack.top(); stack.pop();
-        if (object.IsObject()) {
-            row[tree_columns.value] = "{}";
-            for (auto it = object.MemberBegin(); it != object.MemberEnd(); ++it) {
-                stack.push(std::make_tuple(scope + "." + it->name.GetString(), *(tree_store->append(row.children())), it->value));
-            }
-        } else if (object.IsArray()) {
-            row[tree_columns.value] = "[]";
-            for (auto it = object.Begin(); it != object.End(); ++it) {
-                std::size_t index = it - object.Begin();
-                std::string scope_repr = scope + "[" + std::to_string(index) + "]";
-                stack.push(std::make_tuple(scope_repr, *(tree_store->append(row.children())), *it));
-            }
-        } else {
-            try {
-                set_row_value(row, object);
-            } catch (std::runtime_error &ex) {
-                std::cout << "TreeWindow::parse_object(\"" << &object << "\"):\n  " << ex.what() << std::endl;
-            }
-        }
-        row[tree_columns.key] = Glib::ustring(scope);
-    }
-
     //Add the TreeView's view columns:
     tree_view->append_column("key", tree_columns.key);
     tree_view->append_column("value", tree_columns.value);
 }
 
 /* Fill the Tree's model */
-/*
 void TreeWindow::parse_value(
     std::string scope,
     Gtk::TreeRow row,
-    rapidjson::Value &object
-) {
+    rapidjson::Value &object) {
     if (object.IsObject()) {
         row[tree_columns.value] = "{}";
         for (auto it = object.MemberBegin(); it != object.MemberEnd(); ++it) {
@@ -166,7 +138,8 @@ void TreeWindow::parse_value(
     }
     row[tree_columns.key] = Glib::ustring(scope);
 }
-*/
+
+
 void TreeWindow::set_row_value(Gtk::TreeRow row, rapidjson::Value &object) const {
     Glib::ustring str_value;
     try {

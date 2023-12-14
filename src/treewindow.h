@@ -43,8 +43,8 @@ public:
 
     void open_file_view(const Glib::RefPtr<Gio::File> &);
 
-    // Loads the `tree_view` from a char* containing JSON
-    void load_tree_view(char *&);
+    // Loads the `tree_view` from JSON inside TreeWindow::*contents
+    void load_tree_view();
 
     void parse_value(
         std::string scope,
@@ -53,15 +53,14 @@ public:
     );
 
     Glib::ustring json_file_name;
+
     void on_row_selected(
         const std::shared_ptr<Gtk::TreeModel> &model,
         const Gtk::TreeModel::Path &path, bool
     );
 protected:
     void set_row_value(Gtk::TreeRow row, rapidjson::Value &object) const;
-    std::vector<const char *> json_type_names{
-        "Null", "False", "True", "Object", "Array", "String", "Number"
-    };
+
     rapidjson::Document *json_document{nullptr};
     char *contents{nullptr};
     gsize length{0};
