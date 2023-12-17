@@ -9,15 +9,15 @@
 
 class Preferences : public Gtk::Dialog {
 public:
-    Preferences(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder);
+  Preferences(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder);
 
-    virtual ~Preferences();
+  virtual ~Preferences();
 
-    static Preferences *create(Gtk::Window &parent);
+  static Preferences *create(Gtk::Window &parent);
 
 private:
-    Glib::RefPtr<Gtk::Builder> builder;
-    Glib::RefPtr<Gio::Settings> settings;
+  Glib::RefPtr<Gtk::Builder> builder;
+  Glib::RefPtr<Gio::Settings> settings;
 };
 
 #endif  // PREFERENCES_H

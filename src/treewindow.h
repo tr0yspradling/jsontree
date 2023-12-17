@@ -24,58 +24,64 @@
 
 class TreeModelColumns : public Gtk::TreeModel::ColumnRecord {
 public:
-    TreeModelColumns() {
-        add(key);
-        add(value);
-    }
+  TreeModelColumns() {
+    add(key);
+    add(value);
+  }
 
-    Gtk::TreeModelColumn<Glib::ustring> key;
-    Gtk::TreeModelColumn<Glib::ustring> value;
+  Gtk::TreeModelColumn<Glib::ustring> key;
+  Gtk::TreeModelColumn<Glib::ustring> value;
 };
 
 class TreeWindow : public Gtk::ApplicationWindow {
 public:
-    TreeWindow(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder);
+  TreeWindow(BaseObjectType *cobject, const Glib::RefPtr<Gtk::Builder> &builder);
 
-    virtual ~TreeWindow();
+  virtual ~TreeWindow();
 
-    static TreeWindow *create();
+  static TreeWindow *create();
 
-    void open_file_view(const Glib::RefPtr<Gio::File> &);
+  void open_file_view(const std::shared_ptr<Gio::File> &);
 
-    // Loads the `tree_view` from JSON inside TreeWindow::*contents
-    void load_tree_view();
+  // Loads the `tree_view` from JSON inside TreeWindow::*contents
+  void load_tree_view();
 
-    void parse_value(
-        std::string scope,
-        Gtk::TreeRow row,
-        rapidjson::Value &object
-    );
+  void on_json_file_read(const Glib::RefPtr<Gio::AsyncResult>& result);
 
-    Glib::ustring json_file_name;
+  void parse_value(
+    std::string scope,
+    Gtk::TreeRow row,
+    rapidjson::Value &object
+  );
 
-    void on_row_selected(
-        const std::shared_ptr<Gtk::TreeModel> &model,
-        const Gtk::TreeModel::Path &path, bool
-    );
+  /*
+   * This function is called before any node is selected or unselected, giving some control over which nodes are selected.
+   * The select function should return true if the state of the node may be toggled, and FALSE if the state of the node should be left unchanged.
+   */
+  void on_row_selected();
+
 protected:
-    void set_row_value(Gtk::TreeRow row, rapidjson::Value &object) const;
+  void set_row_value(Gtk::TreeRow row, rapidjson::Value &object) const;
 
-    rapidjson::Document *json_document{nullptr};
-    char *contents{nullptr};
-    gsize length{0};
-    std::shared_ptr<Gio::File> file{nullptr};
+  std::string json_file_basename;
+  std::string json_file_path;
 
-    std::shared_ptr<Gtk::Builder> builder;
-    std::shared_ptr<Gio::Settings> settings{nullptr};
-    Gtk::MenuButton *gears{nullptr};
-    Gtk::Stack *view_stack{nullptr};
-    std::shared_ptr<Gtk::ScrolledWindow> scrolled_window{nullptr};
-    std::shared_ptr<Gtk::TreeView> tree_view{nullptr};
-    std::shared_ptr<Gtk::TreeStore> tree_store{nullptr};
-    std::shared_ptr<Gtk::TreeModelColumnRecord> tree_column_record{nullptr};
+  std::shared_ptr<rapidjson::Document> json_document{nullptr};
+  char* contents{nullptr};
 
-    TreeModelColumns tree_columns;
+  gsize length{0};
+  std::shared_ptr<Gio::File> file{nullptr};
+
+  // std::shared_ptr<Gtk::Builder> builder;
+  std::shared_ptr<Gio::Settings> settings{nullptr};
+  Glib::RefPtr<Gtk::MenuButton> gears{nullptr};
+  Glib::RefPtr<Gtk::Stack> view_stack{nullptr};
+  std::shared_ptr<Gtk::ScrolledWindow> scrolled_window{nullptr};
+  std::shared_ptr<Gtk::TreeView> tree_view{nullptr};
+  std::shared_ptr<Gtk::TreeStore> tree_store{nullptr};
+  std::shared_ptr<Gtk::TreeSelection> tree_selection{nullptr};
+
+  TreeModelColumns tree_columns;
 };
 
 #endif  // WINDOW_H
